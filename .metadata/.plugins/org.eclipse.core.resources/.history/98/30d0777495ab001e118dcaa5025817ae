@@ -1,0 +1,19 @@
+package dev.bank.process.interest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class InterestFree extends Interest{
+	
+	@Override
+	public List<Integer> addedInterst(int total, int installment) {
+		List<Integer> listCostPay = new ArrayList<Integer>();
+		int costPay = (total / installment);
+		for (int i = 0; i < installment; i++) {
+			listCostPay.add(costPay);
+		}
+		return listCostPay;
+	}
+
+
+}

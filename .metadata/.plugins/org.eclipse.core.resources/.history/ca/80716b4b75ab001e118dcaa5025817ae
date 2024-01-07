@@ -1,0 +1,6 @@
+package dev.bank.process;
+
+public class Calculate {
+	private int[][] creditResult;
+
+}

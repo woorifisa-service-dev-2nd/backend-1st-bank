@@ -1,0 +1,26 @@
+package dev.bank.process;
+
+import java.util.List;
+
+import dev.bank.Product;
+
+public class Calculate {
+	private int[][] creditResult = {
+			{6, 10},
+			{5, 12},
+			{4, 14},
+			{3, 16},
+			{2, 18}
+	}; //[등급][무이자할부개월수, 이자율]
+	
+	public int totalCost(List<Product> products) {
+		int total = 0;
+		for(Product product : products) {
+			if(product.getCount()>0) {
+			total += product.getCost()*product.getCount();
+			}
+		}
+		return 0;
+	}
+
+}

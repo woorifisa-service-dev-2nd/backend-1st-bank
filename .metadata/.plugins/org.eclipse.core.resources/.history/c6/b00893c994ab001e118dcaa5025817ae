@@ -1,0 +1,10 @@
+package dev.bank.process.interest;
+
+import java.util.List;
+
+abstract public class Interest {
+	
+	abstract public Listst<Integer> addedInterst(){
+		
+	}
+}

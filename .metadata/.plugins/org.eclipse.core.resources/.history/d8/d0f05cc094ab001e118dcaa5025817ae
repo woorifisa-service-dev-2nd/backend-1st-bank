@@ -1,0 +1,6 @@
+package dev.bank.process.interest;
+
+public class Interest {
+	
+
+}

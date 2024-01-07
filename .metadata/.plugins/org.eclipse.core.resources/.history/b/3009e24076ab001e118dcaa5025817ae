@@ -1,0 +1,16 @@
+package dev.bank.process;
+
+public class Calculate {
+	private int[][] creditResult = {
+			{6, 10},
+			{5, 12},
+			{4, 14},
+			{3, 16},
+			{2, 18}
+	}; //[등급][무이자할부개월수, 이자율]
+	
+	public int howMuch() {
+		return 0;
+	}
+
+}

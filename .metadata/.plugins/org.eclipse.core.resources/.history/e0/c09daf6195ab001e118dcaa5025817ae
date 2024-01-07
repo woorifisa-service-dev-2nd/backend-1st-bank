@@ -1,0 +1,10 @@
+package dev.bank.process.interest;
+
+import java.util.List;
+
+public class InterestFree extends Interest{
+	
+	public List<Integer> addedInterst();
+
+
+}

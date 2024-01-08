@@ -39,14 +39,33 @@ public class ProductListProcess {
 			String a = sc.next(); //구매할 품목
 
 			boolean flag = false; // 상품리스트에 있는지 true면 있는 것, false면 없음
+			
 			String reBuy; // 추가 구매하는 지 확인용
 
 			for (Product product : products) { //리스트 확인하면서 있으면 구매 개수 묻기
 				if (product.getName().equals(a)) {
 					flag = true;
-					System.out.print("구매할 갯수를 입력해주세요: ");
-					int i = sc.nextInt();
-					product.setCount(product.getCount() + i);
+					while(true) {
+						System.out.print("구매할 갯수를 입력해주세요: ");
+						try {
+							int i = sc.nextInt();
+							if(i<1) {
+								System.out.println("개수를 1이상으로 해주세요");	
+								continue;
+							}
+							
+							product.setCount(product.getCount() + i);
+							
+						}catch(Exception e) {
+							System.out.println("문자를 입력하지 마세요");
+							sc.nextLine();
+							continue;
+						}
+						break;
+					}
+					
+					
+					
 				}
 				
 			}

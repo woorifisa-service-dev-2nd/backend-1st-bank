@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,8 +17,9 @@ import dev.bank.user.Consumer;
 
 public class Execution {
 	private static final String RESOURCES = "/resources/";
+//	private static final String RESOURCES2 = "src/main/resources/";
 
-	public void execute(final String fileName) {
+	public void execute(final String fileName) throws IOException {
 		
 		List<String> lines = new ArrayList<>();
 
@@ -31,10 +35,11 @@ public class Execution {
 		}
 
 		// 전체 메뉴 객체 생성
-		//final Path path = Paths.get(RESOURCES + fileName);
+		final Path path = Paths.get(RESOURCES + fileName);
 		Scanner sc = new Scanner(System.in);
 
-		//List<String> lines;
+
+		//List<String> lines = Files.readAllLines(path);
 		List<Product> products;
 		ProductListProcess plp = new ProductListProcess();
 		
@@ -46,10 +51,48 @@ public class Execution {
 		// 구매할 품목 입력받기
 		plp.gettingProduct(products);
 		
-		System.out.print("신용등급을 입력해주세요: ");
-		int credit = sc.nextInt();
-		System.out.print("몇개월 할부를 하시겠습니까 :  ");
-		int installment = sc.nextInt();
+		
+		
+		
+		int credit = 0; 
+		int installment=0;
+		
+		while(true) {
+			try {
+				System.out.print("신용등급을 입력해주세요: ");
+				credit = sc.nextInt();
+				if(credit <1 || credit>5) {
+					System.out.println("신용등급은 1~5까지입니다.");	
+					continue;
+				}
+				
+			}catch(Exception e) {
+				System.out.println("문자를 입력하지 마세요");
+				sc.nextLine();
+				continue;
+			}
+			break;
+		}
+		
+		
+	
+		
+		while(true) {
+			try {
+				System.out.print("몇개월 할부를 하시겠습니까 :  ");
+				installment = sc.nextInt();
+				if(installment <1) {
+					System.out.println("할부는 최소 1개월 이상이여야 합니다.");	
+					continue;
+				}
+				
+			}catch(Exception e) {
+				System.out.println("문자를 입력하지 마세요");
+				sc.nextLine();
+				continue;
+			}
+			break;
+		}
 		
 		Consumer consumer = new Consumer(credit, installment);
 		

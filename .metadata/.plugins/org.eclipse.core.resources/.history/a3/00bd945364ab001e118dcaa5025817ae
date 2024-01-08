@@ -1,9 +1,0 @@
-package dev.bank;
-
-public class Product {
-	private String productCode;
-	private String name;
-	private int cost;
-	private int count = 0;
-
-}

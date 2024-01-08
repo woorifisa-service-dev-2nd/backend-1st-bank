@@ -1,7 +1,0 @@
-package dev.bank.user;
-
-public class Consumer {
-	private int creditRating;
-	private int installment;
-	//private Stirng[]
-}

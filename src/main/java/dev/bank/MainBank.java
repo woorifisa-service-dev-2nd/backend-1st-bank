@@ -6,7 +6,7 @@ public class MainBank {
 
 	public static void main(String[] args) throws IOException {
 		//test
-		Execution execution = new Execution();
+		Execution2 execution = new Execution2();
 		execution.execute("couppang.txt");
 
 	}
